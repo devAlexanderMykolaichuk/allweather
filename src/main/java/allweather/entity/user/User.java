@@ -20,5 +20,9 @@ public class User {
 
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @ElementCollection(targetClass = Role.class)
+    @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "user_role_id")
     private List<Role> roleList;
 }
