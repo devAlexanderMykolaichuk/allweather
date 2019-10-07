@@ -29,7 +29,7 @@ public class Configuration extends WebSecurityConfigurerAdapter {
 
 
     private TokenAuthenticationFilter getTokenAuthenticationFilter(){
-        return new TokenAuthenticationFilter("/**", tokenAuthenticationManager);
+        return new TokenAuthenticationFilter("/api/**", tokenAuthenticationManager);
     }
 
 }
