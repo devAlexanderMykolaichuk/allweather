@@ -1,11 +1,15 @@
 package allweather.service.impl;
 
+import allweather.api.NewUserDto;
+import allweather.entity.user.Role;
 import allweather.entity.user.User;
 import allweather.repository.UserRepository;
 import allweather.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
@@ -18,8 +22,13 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 
     @Override
-    public User registerNewUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    public String registerNewUser(NewUserDto userDto) {
+        User user = new User();
+        user.setLogin(userDto.getLogin());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRoleList(Collections.singletonList(Role.USER));
+        userRepository.save(user);
+        return "Ok";
     }
 }
