@@ -1,8 +1,8 @@
 package allweather.service;
 
-import allweather.api.NewUserDto;
+import allweather.api.user.CreateUserRequest;
 
 public interface RegistrationService {
 
-    String registerNewUser(NewUserDto userDto);
+    String registerNewUser(CreateUserRequest userDto);
 }

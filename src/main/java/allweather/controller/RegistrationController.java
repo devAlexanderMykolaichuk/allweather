@@ -1,6 +1,6 @@
 package allweather.controller;
 
-import allweather.api.NewUserDto;
+import allweather.api.user.CreateUserRequest;
 import allweather.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ public class RegistrationController {
     private RegistrationService registrationService;
     
     @PostMapping("/user")
-    public String registerUser(@RequestBody NewUserDto userDto){
+    public String registerUser(@RequestBody CreateUserRequest userDto){
         return registrationService.registerNewUser(userDto);
     }
 }

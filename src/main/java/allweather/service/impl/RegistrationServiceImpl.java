@@ -1,6 +1,6 @@
 package allweather.service.impl;
 
-import allweather.api.NewUserDto;
+import allweather.api.user.CreateUserRequest;
 import allweather.entity.user.Role;
 import allweather.entity.user.User;
 import allweather.repository.UserRepository;
@@ -22,7 +22,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 
     @Override
-    public String registerNewUser(NewUserDto userDto) {
+    public String registerNewUser(CreateUserRequest userDto) {
         User user = new User();
         user.setLogin(userDto.getLogin());
         user.setEmail(userDto.getEmail());

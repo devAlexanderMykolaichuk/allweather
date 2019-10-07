@@ -1,9 +1,9 @@
-package allweather.api;
+package allweather.api.user;
 
 import lombok.Data;
 
 @Data
-public class NewUserDto {
+public class CreateUserRequest {
 
     private String login;
 
