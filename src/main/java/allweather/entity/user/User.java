@@ -1,5 +1,6 @@
 package allweather.entity.user;
 
+import allweather.utils.validators.EmailConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class User {
 
     private String password;
 
+    @EmailConstraint
     private String email;
 
     @Enumerated(EnumType.STRING)

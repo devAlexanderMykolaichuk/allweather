@@ -6,6 +6,7 @@ import allweather.repository.UserRepository;
 import allweather.service.LoginService;
 import allweather.utils.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -18,14 +19,16 @@ public class LoginServiceImpl implements LoginService {
     
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     
     
     @Override
     public String login(LoginDto loginDto) {
         
         User user = userRepository.findByLogin(loginDto.getLogin()).orElseThrow(NoSuchElementException::new);
-        
-        if (user.getPassword().equals(loginDto.getPassword())){
+        if (passwordEncoder.matches(loginDto.getPassword(), user.getPassword())){
             return tokenUtil.generateToken(loginDto.getLogin());
         } else return "auth failed";
     }
