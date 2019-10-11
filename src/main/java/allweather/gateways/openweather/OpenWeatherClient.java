@@ -1,7 +1,7 @@
 package allweather.gateways.openweather;
 
 
-import allweather.repository.OpenWeatherCityRepository;
+
 import allweather.service.OpenWeatherCityService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class OpenWeatherClient extends AbstractClient{
     }
 
     private String getUrl(Long cityId){
-        String url = BASE_URL+"?"+"id="+cityId.toString()+"&"+APPID;
+        String url = BASE_URL+"?"+"id="+cityId.toString()+"&"+APPID+"&"+"units=metric";
         log.info("URL for request was build: "+ url);
         return url;
     }
