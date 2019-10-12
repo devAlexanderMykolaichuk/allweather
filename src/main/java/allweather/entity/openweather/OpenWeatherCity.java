@@ -1,5 +1,6 @@
 package allweather.entity.openweather;
 
+import allweather.gateways.openweather.protocol.OpenWeatherCoordinate;
 import lombok.Data;
 
 import javax.persistence.*;

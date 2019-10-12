@@ -1,5 +1,6 @@
-package allweather.entity.openweather;
+package allweather.gateways.openweather.protocol;
 
+import com.google.api.client.util.Key;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +9,9 @@ import javax.persistence.*;
 @Embeddable
 public class OpenWeatherCoordinate {
 
+    @Key
     private double lon;
 
+    @Key
     private double lat;
 }

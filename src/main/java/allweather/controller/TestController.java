@@ -28,7 +28,7 @@ public class TestController {
 
     @GetMapping("/test")
     public String getTestOW() throws IOException {
-        return openWeatherClient.getTest();
+        return openWeatherClient.getTest().toString();
     }
 
 

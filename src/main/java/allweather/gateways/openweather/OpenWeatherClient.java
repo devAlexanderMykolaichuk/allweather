@@ -2,6 +2,7 @@ package allweather.gateways.openweather;
 
 
 
+import allweather.gateways.openweather.protocol.OpenWeatherResponse;
 import allweather.service.OpenWeatherCityService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,14 @@ public class OpenWeatherClient extends AbstractClient{
     @Autowired
     private OpenWeatherCityService openWeatherCityService;
 
-    public String getTest() throws IOException {
-        return get(getUrl(openWeatherCityService.getCityByName("Kiev").getId()));
+
+    //todo: NEED TO FIGURED OUT HOW TO HANDLE REQUEST
+    public OpenWeatherResponse getTest() throws IOException {
+        return get(getUrl(openWeatherCityService.getCityByName("Kiev").getId()), OpenWeatherResponse.class);
     }
 
     private String getUrl(Long cityId){
+        //todo: refactor
         String url = BASE_URL+"?"+"id="+cityId.toString()+"&"+APPID+"&"+"units=metric";
         log.info("URL for request was build: "+ url);
         return url;
