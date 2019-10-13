@@ -6,7 +6,6 @@ import allweather.entity.user.User;
 import allweather.repository.UserRepository;
 import allweather.service.AuthenticationService;
 import allweather.utils.TokenUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,11 +19,14 @@ import java.util.stream.Collectors;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    @Autowired
-    private TokenUtil tokenUtil;
+    private final TokenUtil tokenUtil;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public AuthenticationServiceImpl(TokenUtil tokenUtil, UserRepository userRepository) {
+        this.tokenUtil = tokenUtil;
+        this.userRepository = userRepository;
+    }
 
 
     @Override

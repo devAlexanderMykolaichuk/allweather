@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class TokenAuthenticationManager implements AuthenticationManager {
 
-    @Autowired
-    private AuthenticationService authenticationService;
+    private final AuthenticationService authenticationService;
+
+    public TokenAuthenticationManager(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

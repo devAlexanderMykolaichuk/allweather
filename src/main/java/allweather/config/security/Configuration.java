@@ -1,6 +1,5 @@
 package allweather.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,8 +9,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class Configuration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private TokenAuthenticationManager tokenAuthenticationManager;
+    private final TokenAuthenticationManager tokenAuthenticationManager;
+
+    public Configuration(TokenAuthenticationManager tokenAuthenticationManager) {
+        this.tokenAuthenticationManager = tokenAuthenticationManager;
+    }
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {

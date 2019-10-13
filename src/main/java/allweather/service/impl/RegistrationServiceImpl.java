@@ -5,7 +5,6 @@ import allweather.entity.user.Role;
 import allweather.entity.user.User;
 import allweather.repository.UserRepository;
 import allweather.service.RegistrationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +13,14 @@ import java.util.Collections;
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    public RegistrationServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
 
     @Override

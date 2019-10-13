@@ -11,6 +11,8 @@ public class OpenWeatherResponse {
     @Key
     private int cod;
     @Key
+    private String message;
+    @Key
     private String name;
     @Key
     private Long id;
