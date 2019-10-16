@@ -26,7 +26,7 @@ public class Configuration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity){
         webSecurity
                 .ignoring()
-                .antMatchers("/registration/**", "/login/**", "/h2-console/**", "/test/**");
+                .antMatchers("/registration/**", "/login/**", "/test/**");
     }
 
 
