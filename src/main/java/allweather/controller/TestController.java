@@ -45,9 +45,7 @@ public class TestController {
 
     @GetMapping("/test")
     public void getTestOW() throws IOException {
-        //OpenWeatherResponse openWeatherResponse = openWeatherClient.getCurrentWeather();
-        //System.out.println("response is " + openWeatherResponse.toString());
-        esClient.getIndex();
+        System.out.println(openWeatherClient.getForecastWeather());
 
     }
 
