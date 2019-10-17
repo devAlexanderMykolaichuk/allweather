@@ -47,7 +47,7 @@ public class TestController {
     public void getTestOW() throws IOException {
         //OpenWeatherResponse openWeatherResponse = openWeatherClient.getCurrentWeather();
         //System.out.println("response is " + openWeatherResponse.toString());
-        esClient.createIndex();
+        esClient.getIndex();
 
     }
 

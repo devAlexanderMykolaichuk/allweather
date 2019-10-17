@@ -31,67 +31,58 @@ public class IndexBuilder {
         {
             builder.startObject("properties");
             {
-                builder.startObject("name").field("type", "text").endObject();
+                builder.startObject("service_name").field("type", "text").endObject();
 
-                builder.field("id").field("type", "long").endObject();
-
-                builder.startObject("timezone").field("type", "integer").endObject();
-
+                builder.startObject("city_name").field("type", "text").endObject();
+//
+                builder.startObject("city_id").field("type", "long").endObject();
+//
+                builder.startObject("city_timezone").field("type", "integer").endObject();
+//
                 builder.startObject("request_time").field("type", "date").endObject();
-
+//
                 builder.startObject("visibility").field("type", "integer").endObject();
-
+//
                 builder.startObject("base").field("type", "text").endObject();
 
-                builder.startObject("sys");
-                {
-                    builder.startObject("type").field("type", "integer").endObject();
-                    builder.startObject("id").field("type", "integer").endObject();
-                    builder.startObject("message").field("type", "double").endObject();
-                    builder.startObject("country").field("type", "text").endObject();
-                    builder.startObject("sunrise").field("type", "long").endObject();
-                    builder.startObject("sunset").field("type", "long").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sys_type").field("type", "long").endObject();
 
-                builder.startObject("clouds");
-                {
-                    builder.startObject("all").field("type", "integer").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sys_id").field("type", "long").endObject();
 
-                builder.startObject("wind");
-                {
-                    builder.startObject("speed").field("speed", "integer").endObject();
-                    builder.startObject("deg").field("type", "integer").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sys_message").field("type", "double").endObject();
 
-                builder.startObject("main");
-                {
-                    builder.startObject("pressure").field("type", "integer").endObject();
-                    builder.startObject("humidity").field("type", "integer").endObject();
-                    builder.startObject("temp").field("type", "double").endObject();
-                    builder.startObject("temp_min").field("type", "double").endObject();
-                    builder.startObject("temp_max").field("type", "double").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sys_country").field("type", "text").endObject();
 
-                builder.startObject("coordinate");
-                {
-                    builder.startObject("lon").field("type", "text").endObject();
-                    builder.startObject("lat").field("type", "text").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sunrise").field("type", "long").endObject();
 
-                builder.startObject("weather");
-                {
-                    builder.startObject("id").field("type", "integer").endObject();
-                    builder.startObject("main").field("type", "text").endObject();
-                    builder.startObject("description").field("type", "text").endObject();
-                    builder.startObject("icon").field("type", "text").endObject();
-                }
-                builder.endObject();
+                builder.startObject("sunset").field("type", "long").endObject();
+
+                builder.startObject("clouds").field("type", "integer").endObject();
+
+                builder.startObject("wind_speed").field("type", "integer").endObject();
+
+                builder.startObject("wind_deg").field("type", "integer").endObject();
+
+                builder.startObject("pressure").field("type", "integer").endObject();
+
+                builder.startObject("humidity").field("type", "integer").endObject();
+
+                builder.startObject("temp").field("type", "double").endObject();
+
+                builder.startObject("temp_min").field("type", "double").endObject();
+
+                builder.startObject("temp_max").field("type", "double").endObject();
+
+                builder.startObject("lon").field("type", "geo_point").endObject();
+
+                builder.startObject("lat").field("type", "geo_point").endObject();
+
+                builder.startObject("weather_id").field("type", "integer").endObject();
+
+                builder.startObject("weather_main").field("type", "text").endObject();
+
+                builder.startObject("weather_description").field("type", "text").endObject();
+
             }
             builder.endObject();
         }
