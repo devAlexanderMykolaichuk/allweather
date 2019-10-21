@@ -55,6 +55,6 @@ public class OWServiceImpl implements OWService {
 
     private void addToEs(OpenWeatherEsObject esObject) throws IOException {
         Map<String, Object> map = objectMapper.convertValue(esObject, Map.class);
-        esClient.insertIndexData(map);
+        esClient.insertIndexData(map, "openweather");
     }
 }

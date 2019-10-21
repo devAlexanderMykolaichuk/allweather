@@ -41,12 +41,12 @@ public class ESClient {
     }
 
 
-    public void insertIndexData(Map<String, Object> map) throws IOException {
+    public void insertIndexData(Map<String, Object> map, String index) throws IOException {
 
 
         LocalDate localDate = LocalDate.now();
 
-        String sandboxIndex = "sandbox-openweather"+"-"+localDate.toString();
+        String sandboxIndex = "sandbox-"+index+"-"+localDate.toString();
 
 
 
